@@ -1,0 +1,24 @@
+
+Data Warehouse Design Link
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+
+
+Data Warehouse for IPL Tournament Link ~ https://lucid.app/lucidchart/a5eb5db1-b4c5-497e-a5be-7e038d9ec891/edit?view_items=igR3Lcuz-WR3&invitationId=inv_e1669441-8bc5-4968-b256-7bdbb2fb3004
+
+
+
+Data Warehouse for Restaurant booking app Link ~ https://lucid.app/lucidchart/a5eb5db1-b4c5-497e-a5be-7e038d9ec891/edit?view_items=igR3Lcuz-WR3&invitationId=inv_e1669441-8bc5-4968b256-7bdbb2fb3004
+
+
+
+
+Data Warehouse for Cab Ride Link ~  https://lucid.app/lucidchart/7f565a77-1ded-4cd1-9c21-dddf4fccb0a4/edit?viewport_loc=-755%2C-200%2C2792%2C1213%2C0_0&invitationId=inv_33ecb815-7bca-45a7-8c94-c618ebc31b92
+
+
+
+Data Warehouse for Covid Vaccination Link ~ https://lucid.app/lucidchart/2fa138e9-3ea6-4523-b41b-e931a1fc4f20/edit?viewport_loc=-609%2C-669%2C2876%2C1249%2C0_0&invitationId=inv_c692036b-65c9-478b-9a7d-d0d014f0c383
+
+
+
+Data Warehouse for Food Delivery APP Link ~ https://lucid.app/lucidchart/2fa138e9-3ea6-4523-b41b-e931a1fc4f20/edit?viewport_loc=-609%2C-669%2C2876%2C1249%2C0_0&invitationId=inv_c692036b-65c9-478b-9a7d-d0d014f0c383
