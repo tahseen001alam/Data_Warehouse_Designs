@@ -1,0 +1,70 @@
+ANSWER FOR SCENARIO 1 IS AS UNDER -:
+
+
+Q1-What are the strengths and weaknesses of each option?
+
+Option A- "Modifying the Instructor dimension by adding special rows representing instructor teams"
+
+Strengths- This option maintains the intended grain of the fact table and allows the inclusion of the Instructor dimension. It accurately represents courses taught by multiple instructors.
+
+Weaknesses- It introduces complexity in managing and querying the data, as special rows need to be added and maintained for instructor teams. It may require additional effort for data maintenance and updates.
+
+Option B: Changing the grain of the fact table to be one row per student enrollment per course per instructor.
+Strengths: This option provides detailed information on instructors and their involvement in specific courses. It allows for accurate representation of multiple instructors per course enrollment.
+Weaknesses: It introduces fractional values in the EnrollmentCount field, which may require additional calculations during aggregations. It increases the size of the fact table and may require more storage.
+
+Option C: Creating two fact tables, one with the Instructor dimension and one without.
+Strengths: This option offers flexibility for querying based on the attributes of the instructor dimension. It keeps the fact tables aligned with their intended purposes.
+Weaknesses: It requires managing and maintaining two separate fact tables, potentially resulting in duplicated data. It adds complexity to data management and querying.
+
+Question 2. Which option would you choose and why?
+
+The choice of option depends on the specific requirements and priorities of the data warehouse.
+
+If the goal is to have a simple and straightforward data model with minimal complexity, Option A could be a suitable choice. It allows the inclusion of the Instructor dimension while maintaining the intended grain of the fact table.
+
+If detailed analysis of instructor involvement and performance is a key requirement, Option B would be preferred. This option provides more granularity by capturing multiple instructors per course enrollment, although it requires handling fractional values in the fact table.
+
+Option C may be a good compromise if there is a need for both high-level analysis without the instructor dimension (using the first fact table) and more detailed analysis with the instructor dimension (using the second fact table). However, it adds complexity in managing two fact tables.
+
+Question 3. Would your answer to Question 2 be different if the majority of classes had multiple instructors? How about if only one or two classes had multiple instructors? (Explain your answer.)
+
+If the majority of classes had multiple instructors, Option B becomes more advantageous. It would allow for accurate representation of the common scenario and enable detailed analysis of instructor involvement and popularity. The fractional values in the EnrollmentCount field would be more prevalent and manageable.
+
+If only one or two classes had multiple instructors, the choice would depend on the importance of capturing the individual instructors' contributions. If distinguishing between instructors is crucial, Option B would still be preferred. However, if the instructor dimension is not a significant factor in analysis, Option A or Option C could be considered to simplify the data model.
+
+Question 4. [OPTIONAL] Can you think of another reasonable alternative design besides Options A, B, and C? If so, what are the advantages and disadvantages of your alternative design?
+
+Another reasonable alternative design could be to introduce a bridge table to handle multiple instructors. This approach involves:
+
+Option D: Creating a bridge table that links the fact table with the Instructor dimension for courses with multiple instructors.
+Advantages: This design allows for accurate representation of multiple instructors without introducing fractional values or special rows. It maintains a clean and straightforward fact table.
+Disadvantages: It adds an additional table and complexity to the data model. Querying may require joining multiple tables to retrieve complete information on instructors.
+
+The choice of the alternative design would depend on the specific requirements and trade-offs between simplicity and granularity in analyzing instructor data.
+
+ANSWER FOR SCENARIO 2 IS AS UNDER -:
+
+
+
+
+
+Question 5: What are the strengths and weaknesses of each option?
+
+Option A (Type 1 Slowly Changing Dimension): The strength of this option is its simplicity. It overwrites the old score with the new score, making it easy to maintain and query. However, the weakness is that historical information about the changes in customer scores is lost. It does not provide a complete picture of the customer's scoring history.
+
+Option B (Type 2 Slowly Changing Dimension): The strength of this option is that it preserves the historical changes in customer scores by creating new rows in the Customer dimension for each score update. This allows for tracking changes over time and analyzing trends. However, the weakness is that it increases the complexity of the data model and requires additional storage space as each score update creates a new dimension row.
+
+Option C (Separate CustomerScores dimension): The strength of this option is that it provides a separate dimension specifically for storing customer scores. It avoids cluttering the main Customer dimension with score-related attributes and enables efficient querying based on score combinations. However, the weakness is that it introduces additional joins between the Trades fact table and the CustomerScores dimension, which may impact query performance.
+
+Option D (CustomerScores outrigger table): The strength of this option is that it keeps the score-related attributes in a separate table, maintaining a clean and compact Customer dimension. It avoids additional joins in the fact table and provides direct access to score information. However, the weakness is that it requires updating the foreign key column in the Customer table whenever scores change, which adds complexity to data updates.
+
+Question 6: Which option would you choose and why?
+The choice of option depends on the specific requirements and priorities of the online brokerage company. If the focus is on simplicity and the historical changes in scores are not crucial for analysis, Option A (Type 1 Slowly Changing Dimension) could be a suitable choice. On the other hand, if tracking and analyzing the changes in scores over time is important, Option B (Type 2 Slowly Changing Dimension) provides the necessary historical context.
+
+Question 7: Would your answer to Question 6 be different if the number of customers and/or the time interval between score recalculations was much larger or much smaller?
+If the number of customers is much larger or the time interval between score recalculations is shorter, Option B (Type 2 Slowly Changing Dimension) might become less feasible due to the potential increase in dimension rows and the associated storage and performance considerations. In such cases, Option A (Type 1 Slowly Changing Dimension) could be more suitable as it provides a simpler and more efficient solution, sacrificing the ability to track historical changes in scores.
+
+Question 8 [OPTIONAL]: Can you think of another reasonable alternative design besides Options A, B, C, and D? If so, what are the advantages and disadvantages of your alternative design?
+An alternative design could involve using a hybrid approach, combining elements of Options A and B. Instead of overwriting the old score with the new score or creating multiple dimension rows, the design could introduce a separate history table to capture the changes in scores over time. This table would store the score updates along with timestamps, allowing for historical analysis while maintaining a leaner Customer dimension. The advantage of this approach is that it preserves historical information without significantly increasing the complexity or storage requirements. However, it would require additional logic to handle querying and maintaining the history table.
+
